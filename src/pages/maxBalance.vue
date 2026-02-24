@@ -4,7 +4,7 @@
     <el-input-number v-model="count" step-strictly :min="2" :max="10"></el-input-number>
     <el-button style="margin-left: 8px" @click="createArray">生成数组</el-button>
     <div>{{ numbers }}</div>
-    <el-button @click="result = getPercentValue(numbers)!">计算</el-button>
+    <el-button @click="result = getPercentValue(numbers) || []">计算</el-button>
     <div>{{ result }}</div>
   </div>
 </template>

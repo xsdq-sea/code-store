@@ -9,6 +9,7 @@ const dragover = (event: DragEvent) => {
 }
 
 const dropHandler = (event: DragEvent) => {
+  event.preventDefault()
   let file = event.dataTransfer!.files[0]
   if (file.type.startsWith('image')) {
     let img = document.createElement('img')
@@ -16,7 +17,6 @@ const dropHandler = (event: DragEvent) => {
     const box = document.querySelector('.box')!
     box.appendChild(img)
   }
-  event.preventDefault()
 }
 </script>
 <style lang="less" scoped>

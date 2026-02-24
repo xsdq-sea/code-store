@@ -63,28 +63,33 @@ const dragend = (type: number) => {
   dataList.value.splice(targetIndex, 0, sourceItem.value!)
   targetItem.value = null
 }
-const dragoverV = (item: string, {target, offsetY}: {target: HTMLElement; offsetY: number}): void => {
+const dragoverV = (item: string, e: DragEvent): void => {
+  e.preventDefault()
+  let {target, offsetY} = e
   if (item === sourceItem.value) return
   targetItem.value = item
   for (let el of itemList.value) {
-    if (el === target || el.contains(target)) {
+    if (el === target || el.contains(target as HTMLElement)) {
       el.scrollIntoView({behavior: 'smooth', block: 'nearest'})
       let targetHeight = el.offsetHeight
-      if (el !== target) offsetY += target.getBoundingClientRect().top - el.getBoundingClientRect().top
+      if (el !== target) offsetY += (target as HTMLElement).getBoundingClientRect().top - el.getBoundingClientRect().top
       front.value = offsetY < targetHeight / 2
       break
     }
   }
 }
 
-const dragoverH = (item: string, {target, offsetX}: {target: HTMLElement; offsetX: number}): void => {
+const dragoverH = (item: string, e: DragEvent): void => {
+  e.preventDefault()
+  let {target, offsetX} = e
   if (item === sourceItem.value) return
   targetItem.value = item
   for (let el of itemList.value) {
-    if (el === target || el.contains(target)) {
+    if (el === target || el.contains(target as HTMLElement)) {
       el.scrollIntoView({behavior: 'smooth', inline: 'nearest'})
       let targetWidth = el.offsetWidth
-      if (el !== target) offsetX += target.getBoundingClientRect().left - el.getBoundingClientRect().left
+      if (el !== target)
+        offsetX += (target as HTMLElement).getBoundingClientRect().left - el.getBoundingClientRect().left
       front.value = offsetX < targetWidth / 2
       break
     }
