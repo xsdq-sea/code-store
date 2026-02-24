@@ -1,0 +1,50 @@
+@import './colorPicker.less';
+@import './sliderBar.less';
+@import './dialog.less';
+@import './selector.less';
+@import './checkbox.less';
+@import './radio.less';
+@import './drawer.less';
+
+@font-face {
+  font-display: swap;
+  font-family: HarmonyOSRegular;
+  src: url('../fonts/hongmeng.ttf');
+}
+
+:root {
+  --primary-color: #2862ff;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 50px;
+}
+
+.multiple-selector {
+  width: 150px;
+}
+
+.vertical-slider {
+  height: 150px !important;
+}
+
+.custom-button {
+  background-color: transparent;
+  border: 1px solid gray;
+  height: 32px;
+  padding: 0 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  & + .custom-button {
+    margin-left: 16px;
+  }
+  &.custom-button-primary {
+    background-color: #2862ff;
+    color: white;
+    border-color: #2862ff;
+  }
+}

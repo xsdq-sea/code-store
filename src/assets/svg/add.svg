@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="36px" height="36px" viewBox="0 0 36 36" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <g id="3.行情（改弹窗）" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="2.图表-交易" transform="translate(-674.000000, -673.000000)" fill="currentColor">
+            <g id="数据展示/列表/模版/数据编辑备份-7" transform="translate(40.000000, 669.000000)">
+                <g id="数据展示/列表/右/待输入+下一步" transform="translate(542.000000, 4.000000)">
+                    <g id="编组" transform="translate(92.000000, 0.000000)">
+                        <path d="M18,3 C18.8284271,3 19.5,3.67157288 19.5,4.5 L19.5,17 L31.5,17 C32.3284271,17 33,17.6715729 33,18.5 C33,19.3284271 32.3284271,20 31.5,20 L19.5,20 L19.5,31.5 C19.5,32.3284271 18.8284271,33 18,33 C17.1715729,33 16.5,32.3284271 16.5,31.5 L16.5,20 L4.5,20 C3.67157288,20 3,19.3284271 3,18.5 C3,17.6715729 3.67157288,17 4.5,17 L16.5,17 L16.5,4.5 C16.5,3.67157288 17.1715729,3 18,3 Z" id="形状结合"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
