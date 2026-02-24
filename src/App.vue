@@ -1,7 +1,9 @@
 <template>
   <el-scrollbar class="menu-scroll" height="100%">
     <el-menu :default-active="activeIndex" router>
-      <el-menu-item v-for="item in routes" :index="item.path" :key="item.name">{{ item.meta?.name }}</el-menu-item>
+      <el-menu-item v-for="item in sortRoutes" :index="item.path" :key="item.name">
+        {{ item.meta?.name }}
+      </el-menu-item>
     </el-menu>
   </el-scrollbar>
   <div class="child">
@@ -17,6 +19,8 @@ import {routes} from '@/router'
 const route = useRoute()
 const activeIndex = ref('/')
 watch(route, () => (activeIndex.value = route.path))
+
+const sortRoutes = computed(() => [...routes].sort((a, b) => a.meta.name.localeCompare(b.meta.name, 'zh')))
 </script>
 
 <style lang="less">
