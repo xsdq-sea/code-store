@@ -34,7 +34,7 @@ const addWatermark = (url: string) => {
       water.onload = () => {
         context.drawImage(water, 0, 0, 104, 61, x, y, width, height)
         // resolve(canvas.toDataURL()) // 转成base64，不推荐
-        canvas.toBlob(blob => resolve(URL.createObjectURL(blob as Blob))) // 生成url
+        canvas.toBlob(blob => resolve(URL.createObjectURL(blob!))) // 生成url
       }
     }
   })

@@ -2,7 +2,7 @@
   <div class="list">
     <div class="item" v-for="item in dataList" :key="item">
       <span class="label">{{ item }}</span>
-      <el-button type="primary">按钮1</el-button>
+      <el-button type="primary" @click="download">按钮1</el-button>
       <el-button type="primary">按钮2</el-button>
     </div>
   </div>
