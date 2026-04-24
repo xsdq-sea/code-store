@@ -12,6 +12,7 @@ const name: {[key: string]: string} = {
   moveZoom: '移动缩放',
   moveTools: '可拖动工具栏',
   firstFrame: '视频第一帧',
+  videoDraw: '视频绘制',
   fullscreen: '元素全屏',
   img2blob: '图片转blob',
   insertStr: '字符串插入',

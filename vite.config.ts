@@ -9,18 +9,20 @@ import Components from 'unplugin-vue-components/vite'
 import {ElementPlusResolver} from 'unplugin-vue-components/resolvers'
 import legacy from '@vitejs/plugin-legacy'
 import {visualizer} from 'rollup-plugin-visualizer'
-import {createSvgIconsPlugin} from 'vite-plugin-svg-icons'
+import { createSvgIconsPlugin } from 'vite-plugin-svg-icons'
+import json5 from 'vite-plugin-json5'
 
 export default defineConfig({
   plugins: [
     vue(),
+    json5(),
     visualizer({
       filename: 'report.html',
       gzipSize: true,
       emitFile: true
     }),
     AutoImport({
-      imports: ['vue'], // 自动引入 vue 相关函数
+      imports: ['vue', 'vue-i18n'], // 自动引入 vue 相关函数
       resolvers: [
         ElementPlusResolver(),
         IconsResolver({

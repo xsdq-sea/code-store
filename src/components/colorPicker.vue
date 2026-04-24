@@ -10,7 +10,7 @@
   >
     <template #reference>
       <span class="reference">
-        <span :style="{backgroundColor: modelValue}"></span>
+        <span :style="{backgroundColor: color}"></span>
       </span>
     </template>
     <div class="color-panel" v-show="!showCustom">
@@ -157,8 +157,9 @@ const defaultList = [
   '#880e4f'
 ]
 
-const props = defineProps({modelValue: String, toRgb: Boolean})
-const emit = defineEmits(['update:modelValue'])
+const color = defineModel()
+
+const props = defineProps({toRgb: Boolean})
 
 const showPicker = ref(false)
 const custom = ref(true)
@@ -186,7 +187,7 @@ const inputColor = ref('')
 const inputAlpha = ref(0)
 const alpha = ref(0)
 watch(
-  () => props.modelValue,
+  color,
   val => {
     if (!val) return
     let {hex, alpha: a} = color2hexa(val)
@@ -232,12 +233,12 @@ const confirm = close => {
   let a = alpha.value / 100
   if (props.toRgb) {
     let {r, g, b} = hex2rgb(currentColor.value)
-    emit('update:modelValue', `rgba(${r}, ${g}, ${b}, ${a})`)
+    color.value = `rgba(${r}, ${g}, ${b}, ${a})`
   } else {
     a = Math.round(255 * a)
       .toString(16)
       .padStart(2, '0')
-    emit('update:modelValue', currentColor.value + a)
+    color.value = currentColor.value + a
   }
 
   if (close) showPicker.value = false

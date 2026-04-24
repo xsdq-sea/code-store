@@ -7,7 +7,7 @@
     </el-menu>
   </el-scrollbar>
   <div class="child">
-    <router-view></router-view>
+    <router-view />
   </div>
 </template>
 
