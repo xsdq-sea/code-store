@@ -1,4 +1,4 @@
-import {createRouter, createWebHistory} from 'vue-router'
+import {createRouter, createWebHashHistory} from 'vue-router'
 
 const name: {[key: string]: string} = {
   '3dOverturn': '3d翻转',
@@ -61,6 +61,6 @@ export const routes = Object.keys(modules).map(path => {
 })
 
 export default createRouter({
-  history: createWebHistory(),
+  history: createWebHashHistory(import.meta.env.BASE_URL),
   routes
 })

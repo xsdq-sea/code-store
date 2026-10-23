@@ -27,8 +27,9 @@ const getVideoFirstFrame = (videoUrl: string) => {
 const imgUrl = ref('')
 const video = ref<HTMLVideoElement | null>(null)
 onMounted(() => {
-  video.value!.src = '/video.mp4'
-  getVideoFirstFrame('/video.mp4').then(url => {
+  const videoUrl = `${import.meta.env.BASE_URL}video.mp4`
+  video.value!.src = videoUrl
+  getVideoFirstFrame(videoUrl).then(url => {
     imgUrl.value = url as string
   })
 })

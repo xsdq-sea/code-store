@@ -20,7 +20,7 @@
 <script setup lang="ts">
 if ('serviceWorker' in navigator) {
   navigator.serviceWorker
-    .register('/sw.js?v=3')
+    .register(`${import.meta.env.BASE_URL}sw.js?v=4`)
     .then(res => console.log('注册成功', res))
     .catch(err => console.log('注册失败', err))
 }
@@ -62,7 +62,7 @@ const notify = async () => {
     navigator.serviceWorker.getRegistration().then(reg => {
       reg!.showNotification('Hello!', {
         body: content.value,
-        icon: '/icon.png'
+        icon: `${import.meta.env.BASE_URL}icon.png`
       })
     })
   }
@@ -70,7 +70,7 @@ const notify = async () => {
 
 // 请求拦截，mock数据
 const getData = async () => {
-  const res = await fetch('/api/test')
+  const res = await fetch(`${import.meta.env.BASE_URL}api/test`)
   const data = await res.json()
   console.log('API 返回：' + JSON.stringify(data))
 }
@@ -78,7 +78,7 @@ const getData = async () => {
 // 离线时缓存请求，有网时重新发送
 const submit = async () => {
   const requestData = {
-    url: '/api/submit',
+    url: `${import.meta.env.BASE_URL}api/submit`,
     method: 'POST',
     headers: {'Content-Type': 'application/json'},
     data: {name: '张三', age: 20}

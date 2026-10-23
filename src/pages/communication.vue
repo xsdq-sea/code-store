@@ -27,7 +27,7 @@ const broadcast = () => {
 /******************** 广播 ********************/
 
 /******************** shareWorker ********************/
-const worker = new SharedWorker('/sharedWorker.js?v=1')
+const worker = new SharedWorker(`${import.meta.env.BASE_URL}sharedWorker.js?v=1`)
 
 worker.port.postMessage({type: 'id', value: 'communication'})
 
